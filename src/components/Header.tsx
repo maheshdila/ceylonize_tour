@@ -29,7 +29,7 @@ export default function Header() {
               <Link
                 key={link.href}
                 href={link.href}
-                className="hover:bg-white/20 hover:text-white rounded-md px-3 py-1 transition-colors duration-300 text-sm lg:text-base"
+                className="hover:bg-white/20 hover:text-white rounded-full px-3 py-1 transition-colors duration-300 text-sm lg:text-base"
               >
                 {link.label}
               </Link>
