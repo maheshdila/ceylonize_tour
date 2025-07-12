@@ -67,15 +67,14 @@ export default function Home() {
 
 
   return (
-    <div className="relative h-screen w-full bg-cover bg-center bg-gray-900">
-      <Image
-        src="https://placehold.co/1920x1080.png"
-        data-ai-hint="sri lanka train tea plantation"
-        alt="Hero background"
-        layout="fill"
-        objectFit="cover"
-        className="absolute inset-0 z-0"
-      />
+    <div className="relative h-screen w-full bg-gray-900 overflow-hidden">
+      <video
+        src="https://youdrinkwedrivebucket.s3.ap-southeast-1.amazonaws.com/firebase_version/videos/2187246-sd_960_540_30fps.mp4"
+        autoPlay
+        loop
+        muted
+        className="absolute z-0 w-auto min-w-full min-h-full max-w-none object-cover"
+      ></video>
       <div className="absolute inset-0 bg-black/50 z-0"></div>
 
       <div className="relative z-10 h-full flex flex-col p-6 sm:p-8 lg:p-12">
