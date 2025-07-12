@@ -24,12 +24,12 @@ export default function Header() {
         </Link>
 
         {/* Desktop Navigation */}
-        <nav className="hidden md:flex items-center space-x-4 lg:space-x-6 bg-white/10 backdrop-blur-md rounded-full text-white py-2 px-6">
+        <nav className="hidden md:flex items-center space-x-2 bg-white/10 backdrop-blur-md rounded-full text-white py-2 px-4">
             {navLinks.map((link) => (
               <Link
                 key={link.href}
                 href={link.href}
-                className="hover:text-gray-300 transition-colors duration-300 text-sm lg:text-base"
+                className="hover:bg-white/20 hover:text-white rounded-md px-3 py-1 transition-colors duration-300 text-sm lg:text-base"
               >
                 {link.label}
               </Link>
