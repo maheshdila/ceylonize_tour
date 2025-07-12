@@ -36,10 +36,12 @@ export default async function LocationPage({ params }: LocationPageProps) {
 
   return (
     <div className="relative min-h-screen w-full bg-background overflow-x-hidden">
-      <div className="absolute inset-0 z-10 bg-black/60" />
+      <div className="absolute inset-0 z-0 bg-black/60" />
       
       <div className="relative z-20 flex flex-col min-h-screen text-primary-foreground">
-        <Header />
+        <div className="p-6 sm:p-8 lg:p-12">
+            <Header />
+        </div>
         
         <main className="flex-grow flex flex-col items-center justify-center p-4">
           <Card className="w-full max-w-5xl bg-card/10 backdrop-blur-md border-border/20 shadow-lg rounded-2xl overflow-hidden">
@@ -51,6 +53,7 @@ export default async function LocationPage({ params }: LocationPageProps) {
                     layout="fill"
                     objectFit="cover"
                     className="transition-transform duration-500 hover:scale-105"
+                    data-ai-hint={`${params.name} landscape`}
                     unoptimized={true} // Necessary for external, non-whitelisted image URLs from AI
                   />
                 </div>
@@ -58,7 +61,7 @@ export default async function LocationPage({ params }: LocationPageProps) {
                   <p className="text-center text-destructive-foreground bg-destructive/50 p-2 rounded-md my-4">{errorMessage}</p>
                 )}
                 <div className="mt-6 text-center">
-                    <h1 className="font-headline text-5xl md:text-7xl font-bold text-primary-foreground">
+                    <h1 className="font-bold text-5xl md:text-7xl text-primary-foreground">
                         {locationName}
                     </h1>
                     <p className="mt-2 text-lg text-primary-foreground/80">

@@ -1,111 +1,98 @@
 import Image from "next/image";
 import Link from "next/link";
-import { ArrowRight, MoveRight } from "lucide-react";
+import { ArrowLeft, ArrowRight } from "lucide-react";
 import Header from "@/components/Header";
 import { Button } from "@/components/ui/button";
-import {
-  Carousel,
-  CarouselContent,
-  CarouselItem,
-  CarouselNext,
-  CarouselPrevious,
-} from "@/components/ui/carousel";
-import { Card, CardContent } from "@/components/ui/card";
 
 const locations = [
   {
-    name: "Mirissa",
-    image: "https://placehold.co/600x400.png",
+    name: "MIRISSA",
+    image: "https://placehold.co/144x224.png",
     hint: "mirissa beach",
+    href: "/location/mirissa",
   },
   {
-    name: "Sigiriya",
-    image: "https://placehold.co/600x400.png",
+    name: "SIGIRIYA",
+    image: "https://placehold.co/144x224.png",
     hint: "sigiriya rock",
+    href: "/location/sigiriya",
   },
   {
-    name: "Colombo",
-    image: "https://placehold.co/600x400.png",
+    name: "COLOMBO",
+    image: "https://placehold.co/144x224.png",
     hint: "colombo city",
+    href: "/location/colombo",
   },
   {
-    name: "Batticaloa",
-    image: "https://placehold.co/600x400.png",
+    name: "BATTICALOA",
+    image: "https://placehold.co/144x224.png",
     hint: "batticaloa lagoon",
+    href: "/location/batticaloa",
   },
 ];
 
 export default function Home() {
   return (
-    <div className="relative min-h-screen w-full bg-background overflow-x-hidden">
+    <div className="relative h-screen w-full bg-cover bg-center bg-gray-900">
       <Image
         src="https://placehold.co/1920x1080.png"
-        data-ai-hint="sri lanka tropical beach"
-        alt="Background"
+        data-ai-hint="sri lanka train tea plantation"
+        alt="Hero background"
         layout="fill"
         objectFit="cover"
         className="absolute inset-0 z-0"
       />
-      <div className="absolute inset-0 z-10 bg-black/60" />
-      
-      <div className="relative z-20 flex flex-col min-h-screen text-primary-foreground">
-        <Header />
-        
-        <main className="flex-grow flex flex-col items-center justify-center text-center px-4 -mt-16">
-          <h1 className="font-headline text-5xl md:text-7xl lg:text-8xl font-bold tracking-tighter" style={{ color: 'hsl(var(--accent))' }}>
-            WELCOME TO SRI LANKA
-          </h1>
-          <p className="mt-4 max-w-2xl text-lg md:text-xl text-primary-foreground/90">
-            Discover ancient ruins, lush jungles, and pristine beaches. A journey of a lifetime awaits in the pearl of the Indian Ocean.
-          </p>
-          <Button size="lg" className="mt-8 bg-accent hover:bg-accent/90 text-accent-foreground font-bold text-lg px-10 py-6 group">
-            Explore <MoveRight className="ml-2 h-5 w-5 transition-transform group-hover:translate-x-1" />
-          </Button>
-        </main>
+      <div className="absolute inset-0 bg-black/50 z-0"></div>
 
-        <section className="relative z-20 w-full py-12 md:py-20">
-          <Carousel
-            opts={{
-              align: "start",
-              loop: true,
-            }}
-            className="w-full max-w-6xl mx-auto"
-          >
-            <CarouselContent className="-ml-4">
-              {locations.map((location) => (
-                <CarouselItem key={location.name} className="md:basis-1/2 lg:basis-1/3 pl-4">
-                  <div className="p-1">
-                    <Link href={`/location/${location.name.toLowerCase()}`}>
-                      <Card className="overflow-hidden group border-none rounded-2xl shadow-lg transition-all duration-300 hover:scale-105 hover:shadow-2xl">
-                        <CardContent className="relative p-0 flex aspect-video items-center justify-center">
-                          <Image
-                            src={location.image}
-                            alt={location.name}
-                            width={600}
-                            height={400}
-                            data-ai-hint={location.hint}
-                            className="w-full h-full object-cover transition-transform duration-300 group-hover:scale-110"
-                          />
-                          <div className="absolute inset-0 bg-gradient-to-t from-black/70 to-transparent" />
-                          <div className="absolute inset-0 flex items-end justify-between p-6">
-                            <h3 className="font-headline text-3xl font-bold text-white">
-                              {location.name}
-                            </h3>
-                            <div className="bg-white/20 backdrop-blur-sm p-2 rounded-full transform transition-transform duration-300 group-hover:translate-x-1">
-                               <ArrowRight className="h-6 w-6 text-white" />
-                            </div>
-                          </div>
-                        </CardContent>
-                      </Card>
-                    </Link>
-                  </div>
-                </CarouselItem>
-              ))}
-            </CarouselContent>
-            <CarouselPrevious className="ml-16 text-primary-foreground bg-white/20 backdrop-blur-sm border-white/30 hover:bg-white/30" />
-            <CarouselNext className="mr-16 text-primary-foreground bg-white/20 backdrop-blur-sm border-white/30 hover:bg-white/30" />
-          </Carousel>
-        </section>
+      <div className="relative z-10 h-full flex flex-col p-6 sm:p-8 lg:p-12">
+        <Header />
+
+        <main className="flex-grow flex flex-col justify-end">
+          <div className="container mx-auto w-full flex flex-col md:flex-row items-end justify-between gap-8 pb-8">
+            <div className="text-white max-w-xl">
+              <h1 className="text-5xl sm:text-6xl lg:text-8xl font-black uppercase tracking-tight">
+                Welcome <br /> to Sri Lanka
+              </h1>
+              <p className="mt-4 text-gray-200 max-w-lg text-sm sm:text-base leading-relaxed">
+                Discover ancient ruins, lush jungles, and pristine beaches. A journey of a lifetime awaits in the pearl of the Indian Ocean.
+              </p>
+              <Button size="lg" className="mt-8 bg-white/90 hover:bg-white text-black font-bold py-3 px-10 rounded-full transition-all duration-300 transform hover:scale-105 h-auto">
+                Explore
+              </Button>
+            </div>
+
+            <div className="flex-shrink-0">
+              <div className="flex items-center space-x-3 sm:space-x-4">
+                {locations.map((location, index) => (
+                  <Link href={location.href} key={location.name}>
+                    <div className={`relative w-32 h-48 sm:w-36 sm:h-56 rounded-xl overflow-hidden shadow-2xl transform hover:-translate-y-2 transition-transform duration-300 ${index === 3 ? 'hidden sm:block' : ''}`}>
+                      <Image
+                        src={location.image}
+                        alt={`${location.name}`}
+                        data-ai-hint={location.hint}
+                        layout="fill"
+                        objectFit="cover"
+                        className="z-0"
+                      />
+                      <div className="absolute inset-0 bg-gradient-to-t from-black/70 to-transparent z-10"></div>
+                      <div className="relative z-20 h-full flex flex-col justify-end p-4">
+                        <h3 className="text-white font-bold text-lg">{location.name}</h3>
+                      </div>
+                    </div>
+                  </Link>
+                ))}
+              </div>
+              <div className="flex justify-end items-center mt-4 space-x-3">
+                <Button variant="outline" size="icon" className="rounded-full border-white/50 text-white hover:bg-white/20 hover:text-white">
+                   <ArrowLeft className="h-4 w-4" />
+                </Button>
+                <Button variant="outline" size="icon" className="rounded-full border-white/50 text-white hover:bg-white/20 hover:text-white">
+                  <ArrowRight className="h-4 w-4" />
+                </Button>
+              </div>
+            </div>
+          </div>
+        </main>
       </div>
     </div>
   );
