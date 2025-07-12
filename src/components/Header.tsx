@@ -3,15 +3,14 @@
 import Link from "next/link";
 import Image from "next/image";
 import { useState } from "react";
-import { Menu, Search, X } from "lucide-react";
+import { Menu, X } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { Sheet, SheetContent, SheetTrigger } from "@/components/ui/sheet";
 
 const navLinks = [
-  { href: "/location/mirissa", label: "Mirissa" },
-  { href: "/location/sigiriya", label: "Sigiriya" },
-  { href: "/location/colombo", label: "Colombo" },
-  { href: "/location/batticaloa", label: "Batticaloa" },
+  { href: "/about", label: "About" },
+  { href: "/packages", label: "Packages" },
+  { href: "/contact", label: "Contact" },
 ];
 
 export default function Header() {
@@ -35,10 +34,6 @@ export default function Header() {
                 {link.label}
               </Link>
             ))}
-            <a href="#" className="flex items-center hover:text-gray-300 transition-colors duration-300 pl-4 border-l border-white/20">
-              <Search className="w-4 h-4 mr-2" />
-              <span className="text-sm lg:text-base">Search</span>
-            </a>
           </nav>
 
         {/* Mobile Navigation */}
@@ -72,10 +67,6 @@ export default function Header() {
                       {link.label}
                     </Link>
                   ))}
-                  <a href="#" className="flex items-center text-2xl font-medium text-white transition-colors hover:text-gray-300" onClick={() => setSheetOpen(false)}>
-                    <Search className="w-6 h-6 mr-2" />
-                    Search
-                  </a>
                 </nav>
               </div>
             </SheetContent>
