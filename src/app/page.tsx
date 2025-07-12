@@ -1,8 +1,20 @@
+"use client";
+
 import Image from "next/image";
 import Link from "next/link";
 import { ArrowLeft, ArrowRight } from "lucide-react";
 import Header from "@/components/Header";
 import { Button } from "@/components/ui/button";
+import { Card, CardContent } from "@/components/ui/card";
+import {
+  Carousel,
+  CarouselContent,
+  CarouselItem,
+  CarouselNext,
+  CarouselPrevious,
+  type CarouselApi,
+} from "@/components/ui/carousel";
+import React from "react";
 
 const locations = [
   {
@@ -32,6 +44,28 @@ const locations = [
 ];
 
 export default function Home() {
+  const [api, setApi] = React.useState<CarouselApi>();
+  const [current, setCurrent] = React.useState(0);
+
+  React.useEffect(() => {
+    if (!api) {
+      return;
+    }
+
+    setCurrent(api.selectedScrollSnap());
+
+    const onSelect = () => {
+      setCurrent(api.selectedScrollSnap());
+    };
+
+    api.on("select", onSelect);
+
+    return () => {
+      api.off("select", onSelect);
+    };
+  }, [api]);
+
+
   return (
     <div className="relative h-screen w-full bg-cover bg-center bg-gray-900">
       <Image
@@ -61,35 +95,39 @@ export default function Home() {
               </Button>
             </div>
 
-            <div className="flex-shrink-0">
-              <div className="flex items-center space-x-3 sm:space-x-4">
-                {locations.map((location, index) => (
-                  <Link href={location.href} key={location.name}>
-                    <div className={`relative w-32 h-48 sm:w-36 sm:h-56 rounded-xl overflow-hidden shadow-2xl transform hover:-translate-y-2 transition-transform duration-300 ${index === 3 ? 'hidden sm:block' : ''}`}>
-                      <Image
-                        src={location.image}
-                        alt={`${location.name}`}
-                        data-ai-hint={location.hint}
-                        layout="fill"
-                        objectFit="cover"
-                        className="z-0"
-                      />
-                      <div className="absolute inset-0 bg-gradient-to-t from-black/70 to-transparent z-10"></div>
-                      <div className="relative z-20 h-full flex flex-col justify-end p-4">
-                        <h3 className="text-white font-bold text-lg">{location.name}</h3>
+            <div className="flex-shrink-0 w-full max-w-md">
+               <Carousel setApi={setApi} opts={{ loop: true }} className="w-full">
+                <CarouselContent className="-ml-4">
+                  {locations.map((location, index) => (
+                    <CarouselItem key={location.name} className="pl-4 basis-1/3">
+                      <div className="p-1">
+                        <Link href={location.href}>
+                          <Card className={`overflow-hidden transition-all duration-300 border-none bg-transparent shadow-none ${current === index ? 'scale-125' : 'opacity-70 scale-100'}`}>
+                            <CardContent className="relative flex aspect-[2/3] items-center justify-center p-0">
+                               <Image
+                                src={location.image}
+                                alt={`${location.name}`}
+                                data-ai-hint={location.hint}
+                                layout="fill"
+                                objectFit="cover"
+                                className="z-0 rounded-xl"
+                              />
+                              <div className="absolute inset-0 bg-gradient-to-t from-black/70 to-transparent z-10 rounded-xl"></div>
+                              <div className="relative z-20 h-full flex flex-col justify-end p-4">
+                                <h3 className="text-white font-bold text-lg">{location.name}</h3>
+                              </div>
+                            </CardContent>
+                          </Card>
+                        </Link>
                       </div>
-                    </div>
-                  </Link>
-                ))}
-              </div>
-              <div className="flex justify-end items-center mt-4 space-x-3">
-                <Button variant="outline" size="icon" className="rounded-full border-white/50 text-white hover:bg-white/20 hover:text-white">
-                   <ArrowLeft className="h-4 w-4" />
-                </Button>
-                <Button variant="outline" size="icon" className="rounded-full border-white/50 text-white hover:bg-white/20 hover:text-white">
-                  <ArrowRight className="h-4 w-4" />
-                </Button>
-              </div>
+                    </CarouselItem>
+                  ))}
+                </CarouselContent>
+                <div className="flex justify-end items-center mt-4 space-x-3">
+                    <CarouselPrevious className="static translate-y-0 rounded-full border-white/50 text-white hover:bg-white/20 hover:text-white" />
+                    <CarouselNext className="static translate-y-0 rounded-full border-white/50 text-white hover:bg-white/20 hover:text-white" />
+                </div>
+              </Carousel>
             </div>
           </div>
         </main>
