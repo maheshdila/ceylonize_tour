@@ -12,8 +12,8 @@ type LocationPageProps = {
   };
 };
 
-export default async function LocationPage({ params }: LocationPageProps) {
-  const locationName = params.name.charAt(0).toUpperCase() + params.name.slice(1);
+export default async function LocationPage({ params: { name } }: LocationPageProps) {
+  const locationName = name.charAt(0).toUpperCase() + name.slice(1);
   let imageUrl = `https://placehold.co/1200x800.png`; // Default placeholder
   let errorMessage: string | null = null;
 
@@ -53,7 +53,7 @@ export default async function LocationPage({ params }: LocationPageProps) {
                     layout="fill"
                     objectFit="cover"
                     className="transition-transform duration-500 hover:scale-105"
-                    data-ai-hint={`${params.name} landscape`}
+                    data-ai-hint={`${name} landscape`}
                     unoptimized={true} // Necessary for external, non-whitelisted image URLs from AI
                   />
                 </div>
