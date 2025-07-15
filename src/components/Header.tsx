@@ -20,7 +20,7 @@ export default function Header() {
     <header className="w-full">
       <div className="container mx-auto flex justify-between items-center">
         <Link href="/">
-          <Image src="https://youdrinkwedrivebucket.s3.ap-southeast-1.amazonaws.com/firebase_version/logo_original.png" alt="Celonize Logo" width={140} height={40} />
+          <Image src="https://youdrinkwedrivebucket.s3.ap-southeast-1.amazonaws.com/firebase_version/logo_original.png" alt="Celonize Logo" width={200} height={55} />
         </Link>
 
         {/* Desktop Navigation */}
