@@ -59,11 +59,6 @@ export default function GetStarted() {
                         {step.description}
                     </div>
                   )}
-                  {step.title === 'Secure Your Booking' && (
-                    <div className="mt-2 bg-primary text-primary-foreground text-xs font-bold py-1 px-4 rounded-full">
-                        Pay on arrival
-                    </div>
-                  )}
                 </div>
               ))}
             </div>
@@ -87,11 +82,6 @@ export default function GetStarted() {
                 <h3 className="text-xl font-bold text-foreground mb-1">{step.title}</h3>
                 {step.description && (
                     <p className="text-muted-foreground">{step.description}</p>
-                )}
-                {step.title === 'Secure Your Booking' && (
-                  <div className="mt-2 bg-primary text-primary-foreground text-xs font-bold py-1 px-4 rounded-full">
-                      Pay on arrival
-                  </div>
                 )}
               </div>
             ))}
