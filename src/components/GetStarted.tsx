@@ -37,7 +37,7 @@ export default function GetStarted() {
         {/* Desktop View */}
         <div className="hidden md:block">
           <div className="relative">
-            <div className="absolute top-[calc(1.75rem+1rem+2.5rem)] left-0 w-full h-px -translate-y-1/2">
+            <div className="absolute top-[calc(1.75rem+1rem+2rem)] left-0 w-full h-px -translate-y-1/2">
               <svg width="100%" height="2px" xmlns="http://www.w3.org/2000/svg">
                 <line x1="0" y1="1" x2="100%" y2="1" stroke="hsl(var(--accent))" strokeWidth="2" strokeDasharray="5,5" />
               </svg>
@@ -66,24 +66,29 @@ export default function GetStarted() {
 
         {/* Mobile View */}
         <div className="md:hidden">
-          <div className="relative flex flex-col items-center space-y-16">
-            <div className="absolute top-0 left-1/2 w-px h-full -ml-px">
+          <div className="relative flex flex-col items-start space-y-12">
+            <div className="absolute top-0 left-10 w-px h-full -ml-px">
               <svg width="2px" height="100%" xmlns="http://www.w3.org/2000/svg">
                 <line x1="1" y1="0" x2="1" y2="100%" stroke="hsl(var(--accent))" strokeWidth="2" strokeDasharray="5,5" />
               </svg>
             </div>
             {steps.map((step, index) => (
-              <div key={index} className="relative flex flex-col items-center text-center w-full max-w-xs z-10">
-                <div className="text-lg font-bold text-muted-foreground mb-2">
-                  0{index + 1}
+              <div key={index} className="relative flex items-start w-full z-10 space-x-6">
+                <div className="flex-shrink-0">
+                   <div className="w-20 h-20 rounded-full bg-accent flex items-center justify-center shadow-lg">
+                    {step.icon}
+                  </div>
                 </div>
-                <div className="w-24 h-24 rounded-full bg-accent flex items-center justify-center shadow-lg mb-4">
-                  {step.icon}
+
+                <div className="flex flex-col text-left pt-1">
+                  <div className="text-lg font-bold text-muted-foreground mb-1">
+                    0{index + 1}
+                  </div>
+                  <h3 className="text-xl font-bold text-foreground">{step.title}</h3>
+                  {step.description && (
+                    <p className="text-muted-foreground mt-1">{step.description}</p>
+                  )}
                 </div>
-                <h3 className="text-xl font-bold text-foreground mb-1">{step.title}</h3>
-                {step.description && (
-                  <p className="text-muted-foreground">{step.description}</p>
-                )}
               </div>
             ))}
           </div>
