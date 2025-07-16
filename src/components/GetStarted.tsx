@@ -31,7 +31,7 @@ export default function GetStarted() {
     <section className="bg-background py-16 sm:py-24">
       <div className="container mx-auto px-4">
         <h2 className="text-4xl sm:text-5xl font-bold mb-20 text-foreground">
-          How It Works
+          Let' get started...
         </h2>
         
         {/* Desktop View */}
