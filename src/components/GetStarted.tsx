@@ -37,7 +37,7 @@ export default function GetStarted() {
         {/* Desktop View */}
         <div className="hidden md:block">
           <div className="relative">
-            <div className="absolute top-[calc(1.75rem+1rem+2rem)] left-0 w-full h-px -translate-y-1/2">
+            <div className="absolute top-[calc(1.75rem+1rem+2.5rem)] left-0 w-full h-px -translate-y-1/2">
               <svg width="100%" height="2px" xmlns="http://www.w3.org/2000/svg">
                 <line x1="0" y1="1" x2="100%" y2="1" stroke="hsl(var(--accent))" strokeWidth="2" strokeDasharray="5,5" />
               </svg>
@@ -46,13 +46,13 @@ export default function GetStarted() {
             <div className="relative flex justify-between items-start text-center">
               {steps.map((step, index) => (
                 <div key={index} className="flex flex-col items-center w-1/4 px-2">
-                  <div className="text-lg font-bold text-muted-foreground mb-4 h-7 flex items-center">
+                  <div className="text-lg font-bold text-muted-foreground mb-4 h-7 flex items-center justify-center">
                     0{index + 1}
                   </div>
                   <div className="relative w-20 h-20 rounded-full bg-accent flex items-center justify-center shadow-lg mb-4 z-10">
                     {step.icon}
                   </div>
-                  <h3 className="text-xl font-bold text-foreground h-14 flex items-center text-center">{step.title}</h3>
+                  <h3 className="text-xl font-bold text-foreground h-14 flex items-center justify-center">{step.title}</h3>
                   {step.description && (
                     <p className="text-muted-foreground mt-1">
                       {step.description}
@@ -73,17 +73,15 @@ export default function GetStarted() {
               </svg>
             </div>
             {steps.map((step, index) => (
-              <div key={index} className="relative flex items-start w-full z-10 space-x-6">
+              <div key={index} className="relative flex items-center w-full z-10 space-x-6">
                 <div className="flex-shrink-0">
-                   <div className="w-20 h-20 rounded-full bg-accent flex items-center justify-center shadow-lg">
+                   <div className="relative w-20 h-20 rounded-full bg-accent flex items-center justify-center shadow-lg">
+                    <span className="absolute -top-8 text-lg font-bold text-muted-foreground">0{index+1}</span>
                     {step.icon}
                   </div>
                 </div>
 
-                <div className="flex flex-col text-left pt-1">
-                  <div className="text-lg font-bold text-muted-foreground mb-1">
-                    0{index + 1}
-                  </div>
+                <div className="flex flex-col text-left">
                   <h3 className="text-xl font-bold text-foreground">{step.title}</h3>
                   {step.description && (
                     <p className="text-muted-foreground mt-1">{step.description}</p>
