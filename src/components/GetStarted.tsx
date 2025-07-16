@@ -35,9 +35,9 @@ export default function GetStarted() {
         </h2>
         <div className="relative">
           {/* Dotted line for desktop */}
-          <div className="hidden md:block absolute top-12 left-0 w-full border-t-2 border-dashed border-accent -translate-y-1/2"></div>
+          <div className="hidden md:block absolute top-1/2 left-0 w-full border-t-2 border-dashed border-accent -translate-y-1/2"></div>
           
-          <div className="flex flex-col md:flex-row justify-between items-start md:items-center space-y-16 md:space-y-0 md:space-x-8">
+          <div className="flex flex-col md:flex-row justify-between items-center space-y-16 md:space-y-0 md:space-x-8">
             {steps.map((step, index) => (
               <div key={index} className="flex flex-col items-center text-center w-full md:w-1/4 relative">
                 {/* Dotted line for mobile */}
