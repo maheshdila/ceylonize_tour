@@ -37,7 +37,7 @@ export default function GetStarted() {
         {/* Desktop View */}
         <div className="hidden md:block">
           <div className="relative">
-            <div className="absolute top-[62px] left-0 w-full h-px">
+            <div className="absolute top-[calc(1.125rem+1rem+2.5rem)] left-0 w-full h-px -translate-y-1/2">
               <svg width="100%" height="2px" xmlns="http://www.w3.org/2000/svg">
                 <line x1="0" y1="1" x2="100%" y2="1" stroke="hsl(var(--accent))" strokeWidth="2" strokeDasharray="5,5" />
               </svg>
@@ -46,7 +46,7 @@ export default function GetStarted() {
             <div className="relative flex justify-between items-start text-center">
               {steps.map((step, index) => (
                 <div key={index} className="flex flex-col items-center w-1/4 px-2">
-                  <div className="text-lg font-bold text-muted-foreground mb-4">
+                  <div className="text-lg font-bold text-muted-foreground mb-4 h-7 flex items-center">
                     0{index + 1}
                   </div>
                   <div className="relative w-20 h-20 rounded-full bg-accent flex items-center justify-center shadow-lg mb-4 z-10">
