@@ -1,6 +1,6 @@
 "use client";
 
-import { Mail, Users, ClipboardCheck, Lock, DollarSign, ArrowRight } from 'lucide-react';
+import { Mail, Users, ClipboardCheck, Lock, DollarSign } from 'lucide-react';
 
 const steps = [
   {
@@ -39,8 +39,8 @@ export default function GetStarted() {
         </h2>
         <div className="relative">
           {/* Dotted line for desktop */}
-          <div className="hidden md:block absolute top-1/2 left-0 w-full h-px -mt-5">
-             <svg width="100%" height="100%" className="overflow-visible">
+          <div className="hidden md:block absolute top-12 left-0 w-full h-px">
+             <svg width="100%" height="1" className="overflow-visible">
                 <defs>
                     <marker id="arrowhead" markerWidth="10" markerHeight="7" refX="5" refY="3.5" orient="auto" fill="hsl(var(--accent))">
                         <polygon points="0 0, 10 3.5, 0 7" />
@@ -50,13 +50,13 @@ export default function GetStarted() {
             </svg>
           </div>
           
-          <div className="flex flex-col md:flex-row justify-between items-start md:items-center">
+          <div className="flex flex-col md:flex-row justify-between items-start">
             {steps.map((step, index) => (
-              <div key={index} className="relative flex items-start md:flex-col md:items-center w-full md:w-auto px-4 mb-12 md:mb-0">
+              <div key={index} className="relative flex items-start w-full md:flex-col md:w-auto px-4 mb-12 md:mb-0">
                  {/* Dotted line for mobile */}
                 {index < steps.length - 1 && (
-                  <div className="md:hidden absolute top-0 left-12 w-px h-full -translate-x-1/2 mt-16">
-                    <svg width="100%" height="100%" className="overflow-visible">
+                  <div className="md:hidden absolute top-12 left-12 w-px h-full -translate-x-1/2">
+                    <svg width="1" height="100%" className="overflow-visible">
                        <defs>
                          <marker id="arrowhead-mobile" markerWidth="10" markerHeight="7" refX="5" refY="3.5" orient="auto-start-reverse" fill="hsl(var(--accent))">
                             <polygon points="0 0, 10 3.5, 0 7" />
@@ -73,7 +73,7 @@ export default function GetStarted() {
                   </div>
                 </div>
 
-                <div className="text-left md:text-center mt-4 md:mt-0 pt-2">
+                <div className="flex-grow text-left md:text-center pt-2 md:pt-0">
                     <h3 className="text-xl font-bold text-foreground mb-2">{step.title}</h3>
                     {step.description && (
                         <p className="text-muted-foreground">{step.description}</p>
