@@ -1,6 +1,6 @@
 "use client";
 
-import { Mail, Users, ClipboardCheck, Trash2 } from 'lucide-react';
+import { Mail, Users, ClipboardCheck, Lock, DollarSign } from 'lucide-react';
 
 const steps = [
   {
@@ -25,7 +25,13 @@ const steps = [
     number: '04',
     title: 'Secure Your Booking',
     description: null,
-    icon: <Trash2 className="w-10 h-10 text-primary-foreground" />,
+    icon: <Lock className="w-10 h-10 text-primary-foreground" />,
+  },
+  {
+    number: '05',
+    title: 'Pay on Arrival',
+    description: null,
+    icon: <DollarSign className="w-10 h-10 text-primary-foreground" />,
   },
 ];
 
@@ -45,7 +51,7 @@ export default function GetStarted() {
           </div>
           
           {steps.map((step, index) => (
-            <div key={index} className="relative flex flex-col items-center w-full md:w-1/4 px-4 mb-12 md:mb-0">
+            <div key={index} className="relative flex flex-col items-center w-full md:w-1/5 px-4 mb-12 md:mb-0">
                {/* Dotted line for mobile */}
               {index < steps.length - 1 && (
                 <div className="md:hidden absolute top-0 left-1/2 w-px h-full -translate-x-1/2 mt-24">
