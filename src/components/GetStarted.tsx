@@ -1,28 +1,28 @@
 "use client";
 
 import React from 'react';
-import { Mail, Users, ClipboardCheck, Lock } from 'lucide-react';
+import { Mail, Users, ClipboardCheck, Trash2 } from 'lucide-react';
 
 const steps = [
   {
     title: 'Submit Your Details',
     description: null,
-    icon: <Mail className="w-10 h-10 text-primary-foreground" />,
+    icon: <Mail className="w-8 h-8 text-white" />,
   },
   {
     title: 'Connect with a Local Expert Online',
     description: 'Free Consultation',
-    icon: <Users className="w-10 h-10 text-primary-foreground" />,
+    icon: <Users className="w-8 h-8 text-white" />,
   },
   {
     title: 'Receive 3 Personalised Travel Quotes',
     description: 'Discuss Further',
-    icon: <ClipboardCheck className="w-10 h-10 text-primary-foreground" />,
+    icon: <ClipboardCheck className="w-8 h-8 text-white" />,
   },
   {
     title: 'Secure Your Booking',
     description: null,
-    icon: <Lock className="w-10 h-10 text-primary-foreground" />,
+    icon: <Trash2 className="w-8 h-8 text-white" />,
   },
 ];
 
@@ -30,33 +30,56 @@ export default function GetStarted() {
   return (
     <section className="bg-background py-16 sm:py-24">
       <div className="container mx-auto px-4">
-        <h2 className="text-4xl sm:text-5xl font-bold text-center mb-20 text-foreground">
-          Let's Get Started
+        <h2 className="text-4xl sm:text-5xl font-bold mb-20 text-foreground">
+          How It Works
         </h2>
-        <div className="relative">
-          {/* Dotted line for desktop */}
-          <div className="hidden md:block absolute top-1/2 left-0 w-full border-t-2 border-dashed border-accent -translate-y-1/2"></div>
-          
-          <div className="flex flex-col md:flex-row justify-between items-center space-y-16 md:space-y-0 md:space-x-8">
-            {steps.map((step, index) => (
-              <div key={index} className="flex flex-col items-center text-center w-full md:w-1/4 relative">
-                {/* Dotted line for mobile */}
-                {index < steps.length - 1 && (
-                  <div className="md:hidden absolute top-0 left-1/2 w-px h-full border-l-2 border-dashed border-accent -translate-x-1/2 mt-24"></div>
-                )}
-                
-                <div className="flex flex-col items-center z-10 bg-background">
+        
+        {/* Desktop View */}
+        <div className="hidden md:block">
+          <div className="relative w-full px-10">
+            {/* Dotted Line */}
+            <div className="absolute top-1/2 left-0 w-full h-px -translate-y-1/2">
+               <svg width="100%" height="100%" xmlns="http://www.w3.org/2000/svg">
+                 <line x1="0" y1="50%" x2="100%" y2="50%" stroke="var(--accent)" strokeWidth="2" strokeDasharray="5,5" />
+               </svg>
+            </div>
+
+            <div className="relative flex justify-between items-start">
+              {steps.map((step, index) => (
+                <div key={index} className="flex flex-col items-center text-center w-1/4">
                   <div className="text-lg font-bold text-muted-foreground mb-2">
                     0{index + 1}
                   </div>
-                  <div className="w-24 h-24 rounded-full bg-accent flex items-center justify-center shadow-lg mb-4">
+                  {step.description && (
+                    <div className="absolute top-1/2 -mt-12 text-muted-foreground">
+                        {step.description}
+                    </div>
+                  )}
+                  <div className="relative w-20 h-20 rounded-full bg-accent flex items-center justify-center shadow-lg my-4 z-10">
                     {step.icon}
                   </div>
-                  <h3 className="text-xl font-bold text-foreground mb-2">{step.title}</h3>
-                  {step.description && (
-                      <p className="text-muted-foreground">{step.description}</p>
-                  )}
+                  <h3 className="text-xl font-bold text-foreground">{step.title}</h3>
                 </div>
+              ))}
+            </div>
+          </div>
+        </div>
+
+        {/* Mobile View */}
+        <div className="md:hidden">
+          <div className="relative flex flex-col items-center space-y-16">
+            {steps.map((step, index) => (
+              <div key={index} className="flex flex-col items-center text-center w-full max-w-xs">
+                 <div className="text-lg font-bold text-muted-foreground mb-2">
+                    0{index + 1}
+                  </div>
+                <div className="w-24 h-24 rounded-full bg-accent flex items-center justify-center shadow-lg mb-4">
+                  {step.icon}
+                </div>
+                <h3 className="text-xl font-bold text-foreground mb-2">{step.title}</h3>
+                {step.description && (
+                    <p className="text-muted-foreground">{step.description}</p>
+                )}
               </div>
             ))}
           </div>
