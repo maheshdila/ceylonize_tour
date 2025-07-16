@@ -1,6 +1,5 @@
 "use client";
 
-import React from 'react';
 import { Mail, Users, ClipboardCheck, Trash2 } from 'lucide-react';
 
 const steps = [
@@ -37,7 +36,7 @@ export default function GetStarted() {
         {/* Desktop View */}
         <div className="hidden md:block">
           <div className="relative">
-            <div className="absolute top-[calc(1.75rem+1rem+2.5rem+1rem)] left-0 w-full h-px -translate-y-1/2">
+            <div className="absolute top-[calc(1.75rem+1rem+2.5rem+1.5rem)] left-0 w-full h-px -translate-y-1/2">
               <svg width="100%" height="2px" xmlns="http://www.w3.org/2000/svg">
                 <line x1="0" y1="1" x2="100%" y2="1" stroke="hsl(var(--accent))" strokeWidth="2" strokeDasharray="5,5" />
               </svg>
@@ -67,7 +66,7 @@ export default function GetStarted() {
         {/* Mobile View */}
         <div className="md:hidden">
           <div className="relative flex flex-col items-start space-y-12 pl-4">
-            <div className="absolute top-0 left-10 w-px h-full -ml-px">
+            <div className="absolute top-10 left-14 w-px h-[calc(100%-5rem)] -ml-px">
               <svg width="2px" height="100%" xmlns="http://www.w3.org/2000/svg">
                 <line x1="1" y1="0" x2="1" y2="100%" stroke="hsl(var(--accent))" strokeWidth="2" strokeDasharray="5,5" />
               </svg>
