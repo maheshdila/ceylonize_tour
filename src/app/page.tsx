@@ -69,7 +69,7 @@ export default function Home() {
   return (
     <div className="relative h-screen w-full bg-gray-900 overflow-hidden">
       <video
-        src="https://youdrinkwedrivebucket.s3.ap-southeast-1.amazonaws.com/firebase_version/videos/2187246-sd_960_540_30fps.mp4"
+        src="https://youdrinkwedrivebucket.s3.ap-southeast-1.amazonaws.com/firebase_version/videos/13860756_1920_1080_30fps+(online-video-cutter.com)+(1).mp4"
         autoPlay
         loop
         muted
