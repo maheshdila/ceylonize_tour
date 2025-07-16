@@ -37,7 +37,7 @@ export default function GetStarted() {
         {/* Desktop View */}
         <div className="hidden md:block">
           <div className="relative">
-            <div className="absolute top-[calc(1.75rem+1rem+2.5rem)] left-0 w-full h-px -translate-y-1/2">
+            <div className="absolute top-[calc(1.75rem+1rem+2.5rem+1rem)] left-0 w-full h-px -translate-y-1/2">
               <svg width="100%" height="2px" xmlns="http://www.w3.org/2000/svg">
                 <line x1="0" y1="1" x2="100%" y2="1" stroke="hsl(var(--accent))" strokeWidth="2" strokeDasharray="5,5" />
               </svg>
@@ -66,23 +66,23 @@ export default function GetStarted() {
 
         {/* Mobile View */}
         <div className="md:hidden">
-          <div className="relative flex flex-col items-start space-y-12">
+          <div className="relative flex flex-col items-start space-y-12 pl-4">
             <div className="absolute top-0 left-10 w-px h-full -ml-px">
               <svg width="2px" height="100%" xmlns="http://www.w3.org/2000/svg">
                 <line x1="1" y1="0" x2="1" y2="100%" stroke="hsl(var(--accent))" strokeWidth="2" strokeDasharray="5,5" />
               </svg>
             </div>
             {steps.map((step, index) => (
-              <div key={index} className="relative flex items-center w-full z-10 space-x-6">
-                <div className="flex-shrink-0">
-                   <div className="relative w-20 h-20 rounded-full bg-accent flex items-center justify-center shadow-lg">
-                    <span className="absolute -top-8 text-lg font-bold text-muted-foreground">0{index+1}</span>
-                    {step.icon}
-                  </div>
+              <div key={index} className="relative flex items-center w-full z-10">
+                <div className="flex-shrink-0 w-20 h-20 bg-accent rounded-full flex items-center justify-center shadow-lg z-10">
+                  {step.icon}
                 </div>
 
-                <div className="flex flex-col text-left">
-                  <h3 className="text-xl font-bold text-foreground">{step.title}</h3>
+                <div className="flex-grow flex flex-col text-left pl-6">
+                   <div className="text-lg font-bold text-muted-foreground">
+                    0{index + 1}
+                  </div>
+                  <h3 className="text-xl font-bold text-foreground mt-1">{step.title}</h3>
                   {step.description && (
                     <p className="text-muted-foreground mt-1">{step.description}</p>
                   )}
